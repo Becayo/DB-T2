@@ -3,7 +3,7 @@
 | Integrante | Rol |
 | :------: | :---: |
 | Benjamin Cayo | 201973057-6 |
-| Nombre | Rol |
+| Felipe Fuentes | 201973102-5 |
 | Nombre | Rol |
 
 ## Recordatorios:
