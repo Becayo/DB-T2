@@ -4,7 +4,7 @@
 | :------: | :---: |
 | Benjamin Cayo | 201973057-6 |
 | Felipe Fuentes | 201973102-5 |
-| Nombre | Rol |
+| Diego Pérez | 201973058-4 |
 
 ## Recordatorios:
 - [x] Comenzar la tarea 2 
