@@ -1,2 +1,7 @@
-# DB-T2
-Tarea 2 Bases de Datos
+# Bases de Datos: Informe Tarea 2 Grupo 21
+
+| Integrante | Rol |
+| :------: | :---: |
+| Benjamin Cayo | 201973057-6 |
+| Nombre | Rol |
+| Nombre | Rol |
