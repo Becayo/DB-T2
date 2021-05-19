@@ -9,4 +9,3 @@
 ## Recordatorios:
 - [x] Comenzar la tarea 2 
 - [x] Dejar de jugar Starbound
-- [x] a 
