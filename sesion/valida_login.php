@@ -1,4 +1,4 @@
 <?php 
 /* Este archivo debe manejar la lógica de iniciar sesión */
-    include("db_config.php");
+    $_SERVER['DOCUMENT_ROOT'].'/db_config.php';
 ?>
