@@ -8,4 +8,7 @@
    - Iniciar Sesión
    - Registrarse
 */
+
+   include("db_config.php");
+
 ?>
