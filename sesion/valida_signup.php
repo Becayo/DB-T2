@@ -14,13 +14,11 @@
             
         date_default_timezone_set('America/Santiago');
             
-        $fecha = date("Y-m-d H:i:s");
+        $fecha = pg_escape_string(date("Y-m-d H:i:s", time()));
             
         $query = "INSERT INTO usuario(nombre, apellido, correo, contraseña, pais, fecha_registro) VALUES('" . $nombre . "', '" . $apellido . "', '" . $correo . "', '" . $pass1 . "', '" . $pais . "', '" . $fecha . "')";
             
-        if(pg_query_params($dbconn, $query, array($nombre,$apellido,$correo,$pass1,$pass2,$pais)) !== FALSE){
-            echo "Los siguientes datos fueron ingresados con exito ".$correo;
-        }
+        pg_query($dbconn, $query);
     }
     
     pg_close();
