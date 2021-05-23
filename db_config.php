@@ -1,6 +1,6 @@
 <?php
 /* Detalles de la conexión */
-$conn_string = "host=localhost port=5432 dbname=<nombre_db> user=postgres password=<contraseña>";
+$conn_string = "host=tarea2db.postgres.database.azure.com port=5432 dbname=tarea2-db user=admin_tarea2 password=Password2021";
 // Recuerde reemplazar "<contraseña>" por su contraseña y "<nombre_db>" por el nombre de su BD. No se incluyen los "<>".
 // Establecemos una conexión con el servidor postgresSQL
 $dbconn = pg_connect($conn_string);
