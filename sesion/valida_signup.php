@@ -23,7 +23,7 @@
             if($pass1 == $pass2){
                 $encrypted_pass = password_hash($pass1, PASSWORD_DEFAULT);
     
-                $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro) VALUES ('$nombre', '$apellido', '$correo', '$encrypted_pass', '$pais', '$fecha')";
+                $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha')";
                 pg_query($dbconn, $query);
                 header("location:log-in.html");
             }else{
@@ -32,6 +32,7 @@
 
         }else{
             echo "Ya existe un usuario con este correo";
-        }}
-        pg_close();
+        }
+    }
+    pg_close();
 ?>
