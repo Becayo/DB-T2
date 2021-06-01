@@ -20,9 +20,11 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <!-- Visible solo si hay una sesión iniciada -->
-            <li class="nav-item">
-                <a class="nav-link" href="/sesion/logout.php">Cerrar Sesión</a>
-            </li>
+            <?php
+            if(FALSE){
+                echo '<li class="nav-item"><a class="nav-link" href="/sesion/logout.php">Cerrar Sesión</a></li>';
+            }
+            ?>
             <!-- Visible solo si NO hay una sesión iniciada -->
             <li class="nav-item">
                 <a class="nav-link" href="/sesion/log-in.html">Iniciar Sesión</a>
