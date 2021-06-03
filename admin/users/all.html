@@ -6,8 +6,6 @@
     </div>
     <div class="row p-3">
         <div class="col">
-            <?php $sqlall="SELECT id,nombre,apellido,correo FROM usuario";
-            $result = pg_query ($sqlall) or die('La consulta fallo: ' . pg_last_error()); ?> 
             <!-- Llamar a una consulta y su resultado-->
             <div class="container shadow-lg rounded m-auto p-5">
                 <table class="table">
@@ -21,7 +19,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $line = pg_fetch_all($result) ?>
                             <?php if (count($line) > 0): ?>
                                   <tbody>
                             <?php foreach ($line as $row): array_map('htmlentities', $row); ?>
@@ -46,6 +43,7 @@
                             <?php endif; ?>
                     </tbody>
                 </table>
+                <a href="/admin/users/create.html" class="btn btn-success">Nuevo <i class="fas fa-plus"></i></a>
             </div>
         </div>
     </div>

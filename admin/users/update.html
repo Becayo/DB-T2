@@ -11,34 +11,34 @@
                     <form action="admin/users/CRUD/update.php">
                         <div class="form-group">
                             <label for="name">Nombre</label>
-                            <input type="text" class="form-control" placeholder="Nombre" id="name" required>
+                            <input type="text" class="form-control" placeholder="<?php echo $Datos['nombre']?>" id="name" required>
                         </div>
                         <div class="form-group">
                             <label for="surname">Apellido</label>
-                            <input type="text" class="form-control" placeholder="Apellido" id="surname">
+                            <input type="text" class="form-control" placeholder="<?php echo $Datos['apellido']?>" id="surname">
                         </div>
                         <div class="form-group">
                             <label for="email">Correo Electrónico</label>
-                            <input type="email" class="form-control" placeholder="correo@electronico.com" id="email" required>
+                            <input type="email" class="form-control" placeholder="<?php echo $Datos['correo']?>" id="email" required>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Contraseña</label>
-                            <input type="password" class="form-control" placeholder="Contraseña" id="pwd" required>
+                            <input type="password" class="form-control" placeholder="<?php echo $Datos['contraseña']?>" id="pwd" required>
                         </div>
                         <!-- NOTA: Los valores están en duro para esta tarea. -->
                         <div class="form-group">
                             <label for="country">País</label>
                             <select class="form-control" id="country">
-                              <option value="1">Angola</option>
-                              <option value="2">Sudáfrica</option>
-                              <option value="3">Canadá</option>
-                              <option value="4">Estados Unidos</option>
-                              <option value="5">Chile</option>
-                              <option value="6">Australia</option>
-                              <option value="7">India</option>
-                              <option value="8">Corea del Sur</option>
-                              <option value="9">Rusia</option>
-                              <option value="10">Suiza</option>
+                              <option value="1" <?php echo($Datos['pais']==1?"selected":"");?>>Angola</option>
+                              <option value="2" <?php echo($Datos['pais']==2?"selected":"");?>>Sudáfrica</option>
+                              <option value="3" <?php echo($Datos['pais']==3?"selected":"");?>>Canadá</option>
+                              <option value="4" <?php echo($Datos['pais']==4?"selected":"");?>>Estados Unidos</option>
+                              <option value="5" <?php echo($Datos['pais']==5?"selected":"");?>>Chile</option>
+                              <option value="6" <?php echo($Datos['pais']==6?"selected":"");?>>Australia</option>
+                              <option value="7" <?php echo($Datos['pais']==7?"selected":"");?>>India</option>
+                              <option value="8" <?php echo($Datos['pais']==8?"selected":"");?>>Corea del Sur</option>
+                              <option value="9" <?php echo($Datos['pais']==9?"selected":"");?>>Rusia</option>
+                              <option value="10"<?php echo($Datos['pais']==10?"selected":"");?>>Suiza</option>
                             </select>
                           </div>
                         <div class='d-flex justify-content-end'>
