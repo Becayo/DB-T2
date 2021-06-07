@@ -21,8 +21,6 @@
         if($contador == 0){
     
             if($pass1 == $pass2){
-                $encrypted_pass = password_hash($pass1, PASSWORD_DEFAULT);
-    
                 $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha')";
                 pg_query($dbconn, $query);
                 header("location:log-in.html");
