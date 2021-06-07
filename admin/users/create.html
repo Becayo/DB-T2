@@ -1,5 +1,7 @@
 <?php include '../../include/navbar.html'; ?>
 <?php include 'CRUD/create.php'; ?>
+<?php include '../../db_config.php' ?>
+
     <div class='container-fluid'>
         <div class="row p-3">
             <h1>Crear Usuario</h1>
@@ -7,7 +9,7 @@
         <div class="row p-3">
             <div class="col">
                 <div class="container shadow-lg rounded m-auto p-5">
-                    <form action="CRUD/create.php">
+                    <form action="CRUD/create.php" method="POST">
                         <div class="form-group">
                             <label for="name">Nombre</label>
                             <input type="text" class="form-control" placeholder="Nombre" name="name" id="name" required>

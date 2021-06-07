@@ -19,6 +19,7 @@
 
             $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha')";
             pg_query($dbconn, $query);
+            header("location:../all.html");
 
         }else{
             echo "Ya existe un usuario con este correo";
