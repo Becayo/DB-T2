@@ -19,6 +19,5 @@
             header("location:log-in.html?signup=empty");
         }
         pg_close();
-    
     }
 ?>
