@@ -1,4 +1,5 @@
 <?php include '../include/navbar.html'; ?>
+<?php include 'wallet.php'; ?>
     <div class='container-fluid'>
         <div class="row p-3">
             <h1>Mi Billetera</h1>
@@ -16,17 +17,18 @@
                                 <th scope="col">Total</th>
                             </tr>
                         </thead>
+                        <?php if (count($line) > 0): ?>
                         <tbody>
+                            <?php foreach ($line as $row): array_map('htmlentities', $row); ?>
                             <!-- Debería haber una de estas por cada moneda que tenga el usuario -->
                             <tr>
-                                <td >DRCY</td>
-                                <td>Prestigiocoin</td>
-                                <td>12.34</td>
-                                <td>10.0 USD</td>
-                                <td>123.4 USD</td>
+                                <td ><?php echo implode('</td><td>', $row); ?></td>
+                                
                             </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
