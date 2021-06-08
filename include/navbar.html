@@ -14,7 +14,15 @@ session_start();?>
             
             <!-- Solo el admin puede revisar los usuarios -->
             <?php 
-                if(TRUE){ echo '<li class="nav-item"><a class="nav-link" href="/admin/users/all.html">Usuarios</a></li>';}
+            if(isset($_SESSION['correo'])){
+
+                $correoo = $_SESSION['correo'];
+                $buscar_admin = "SELECT * FROM usuario WHERE correo = '$correoo'";
+                $result_read = pg_query ($buscar_admin);
+                $Datos= pg_fetch_array($result_read);
+
+                if(false){ echo '<li class="nav-item"><a class="nav-link" href="/admin/users/all.html">Usuarios</a></li>';}
+            }
             ?>
 
         </ul>
