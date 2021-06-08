@@ -1,7 +1,7 @@
 <?php 
 
     if(!isset($_SESSION['correo'])){
-        header("Location:../index.html");
+        header("Location:../../../index.html");
     }
 
     $sqlall="SELECT id,nombre,apellido,correo FROM usuario";
