@@ -21,7 +21,7 @@ session_start();?>
                 $result_read = pg_query ($buscar_admin);
                 $Datos= pg_fetch_array($result_read);
 
-                if(false){ echo '<li class="nav-item"><a class="nav-link" href="/admin/users/all.html">Usuarios</a></li>';}
+                if($Datos['admin'] == 't'){ echo '<li class="nav-item"><a class="nav-link" href="/admin/users/all.html">Usuarios</a></li>';}
             }
             ?>
 
