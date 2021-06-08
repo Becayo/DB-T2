@@ -8,11 +8,14 @@
         $correo = pg_escape_string($dbconn, $_POST['email']);
         $pass = pg_escape_string($dbconn, $_POST['pwd']);
 
-        $buscar_usuario = "SELECT * FROM usuario WHERE correo = '$correo' and contraseña = '$pass'";
+        $buscar_usuario = "SELECT id,correo,contraseña FROM usuario WHERE correo = '$correo' and contraseña = '$pass'";
         $resultado = pg_query($dbconn, $buscar_usuario);
+        $Datos= pg_fetch_array($resultado);
+        $id = $Datos['id'];
         $contador = pg_num_rows($resultado);
         if($contador > 0){
             $_SESSION['correo'] = $correo;
+            $_SESSION['id'] = $id;
             header("location:../index.html");
 
         }else{

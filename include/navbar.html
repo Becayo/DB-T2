@@ -7,15 +7,15 @@ session_start();?>
         <a class="navbar-brand" href="/index.html">Equipo 21</a>
         <ul class="navbar-nav">
             <!-- Visible solo si hay una sesión iniciada -->
-            <li class="nav-item">
-                <a class="nav-link" href="/user/profile.html">Perfil</a>
-            </li>
+            <?php if(isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/user/profile.html">Perfil</a></li>';}?>
+            
             <!-- Solo los usuarios tienen billetera -->
-            <li class="nav-item">
-                <a class="nav-link" href="/user/wallet.html">Billetera</a>
-            </li>
+            <?php if(isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/user/wallet.html">Billetera</a></li>';}?>
+            
             <!-- Solo el admin puede revisar los usuarios -->
-            <?php if(TRUE){ echo '<li class="nav-item"><a class="nav-link" href="/admin/users/all.html">Usuarios</a></li>';}?>
+            <?php 
+                if(TRUE){ echo '<li class="nav-item"><a class="nav-link" href="/admin/users/all.html">Usuarios</a></li>';}
+            ?>
 
         </ul>
         <ul class="navbar-nav ml-auto">
