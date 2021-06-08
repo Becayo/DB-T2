@@ -1,4 +1,9 @@
 <?php
+
+    if(!isset($_SESSION['correo'])){
+        header("Location:../index.html");
+    }
+
     $correo = $_SESSION['correo'];
     $sql_read = "SELECT id,nombre,apellido,correo,pais,fecha_registro,contraseña FROM usuario WHERE correo='$correo'";
     $result_read = pg_query ($sql_read) or die('La consulta fallo: ' . pg_last_error());
