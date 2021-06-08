@@ -7,10 +7,10 @@ session_start();?>
         <a class="navbar-brand" href="/index.html">Equipo 21</a>
         <ul class="navbar-nav">
             <!-- Visible solo si hay una sesión iniciada -->
-            <?php if(isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/user/profile.html">Perfil</a></li>';}?>
+            <?php if(isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/user/profile.html"><i class="fas fa-id-card"></i> Perfil</a></li>';}?>
             
             <!-- Solo los usuarios tienen billetera -->
-            <?php if(isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/user/wallet.html">Billetera</a></li>';}?>
+            <?php if(isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/user/wallet.html"><i class="fas fa-wallet"></i> Billetera</a></li>';}?>
             
             <!-- Solo el admin puede revisar los usuarios -->
             <?php 
@@ -21,17 +21,17 @@ session_start();?>
                 $result_read = pg_query ($buscar_admin);
                 $Datos= pg_fetch_array($result_read);
 
-                if($Datos['admin'] == 't'){ echo '<li class="nav-item"><a class="nav-link" href="/admin/users/all.html">Usuarios</a></li>';}
+                if($Datos['admin'] == 't'){ echo '<li class="nav-item"><a class="nav-link" href="/admin/users/all.html"><i class="fas fa-users"></i> Usuarios</a></li>';}
             }
             ?>
 
         </ul>
         <ul class="navbar-nav ml-auto">
             <!-- Visible solo si hay una sesión iniciada -->
-            <?php if(isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/sesion/logout.php">Cerrar Sesión</a></li>';}?>
+            <?php if(isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/sesion/logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>';}?>
             <!-- Visible solo si NO hay una sesión iniciada -->
-            <?php if(!isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/sesion/log-in.html">Iniciar Sesión</a></li>';}?>
+            <?php if(!isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/sesion/log-in.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>';}?>
             <!-- Visible solo si NO hay una sesión iniciada -->
-            <?php if(!isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/sesion/sign-up.html">Registrarse</a></li>';}?>
+            <?php if(!isset($_SESSION['correo'])){ echo '<li class="nav-item"><a class="nav-link" href="/sesion/sign-up.html"><i class="far fa-edit"></i> Registrarse</a></li>';}?>
         </ul>
     </nav>
