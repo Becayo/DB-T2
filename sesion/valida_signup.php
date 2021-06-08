@@ -15,12 +15,16 @@
         $fecha = pg_escape_string($dbconn, date("Y-m-d H:i:s", time()));
         
         $buscar_usuario = "SELECT * FROM usuario WHERE correo = '$correo'";
+
+        
+
         $resultado = pg_query($dbconn, $buscar_usuario);
         $contador = pg_num_rows($resultado);
 
         if($contador == 0){
     
             if($pass1 == $pass2){
+                $pass1 = password_hash($pass2,PASSWORD_DEFAULT,['cost' => 5]);
                 $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha')";
                 pg_query($dbconn, $query);
                 header("location:log-in.html");
