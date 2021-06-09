@@ -1,5 +1,8 @@
 <?php include '../../include/navbar.html'; ?>
-<?php include 'CRUD/read.php'; ?>
+<?php include 'CRUD/update.php';
+$id= $_GET['id'] ;
+$update = "CRUD/update.php?id=$id";?>
+
     <div class='container-fluid'>
         <div class="row p-3">
             <h1>Editar Usuario</h1>
@@ -8,27 +11,27 @@
             <div class="col">
                 <div class="container shadow-lg rounded m-auto p-5">
                     <!-- El formulario debe aparecer llenado con los valores actuales de los parámetros -->
-                    <form action="admin/users/CRUD/update.php">
+                    <form method="POST" action= "<?php echo $update ?>">
                         <div class="form-group">
                             <label for="name">Nombre</label>
-                            <input type="text" class="form-control" placeholder="<?php echo $Datos['nombre']?>" id="name" required>
+                            <input type="text" class="form-control" placeholder="Nombre" id="name" value= "<?php echo $Datos['nombre']?>" required name="name">
                         </div>
                         <div class="form-group">
                             <label for="surname">Apellido</label>
-                            <input type="text" class="form-control" placeholder="<?php echo $Datos['apellido']?>" id="surname">
+                            <input type="text" class="form-control" placeholder="Apellido" value= "<?php echo $Datos['apellido']?>" id="surname" name="surname">
                         </div>
                         <div class="form-group">
                             <label for="email">Correo Electrónico</label>
-                            <input type="email" class="form-control" placeholder="<?php echo $Datos['correo']?>" id="email" required>
+                            <input type="email" class="form-control" placeholder="correo@electronico.com" value="<?php echo $Datos['correo']?>" name="email" id="email" required>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Contraseña</label>
-                            <input type="password" class="form-control" placeholder="<?php echo $Datos['contraseña']?>" id="pwd" required>
+                            <input type="password" class="form-control" placeholder="Contraseña" value= "<?php echo $Datos['contraseña']?>" id="pwd" name="pwd" required>
                         </div>
                         <!-- NOTA: Los valores están en duro para esta tarea. -->
                         <div class="form-group">
                             <label for="country">País</label>
-                            <select class="form-control" id="country">
+                            <select class="form-control" id="country" name="country">
                               <option value="1" <?php echo($Datos['pais']==1?"selected":"");?>>Angola</option>
                               <option value="2" <?php echo($Datos['pais']==2?"selected":"");?>>Sudáfrica</option>
                               <option value="3" <?php echo($Datos['pais']==3?"selected":"");?>>Canadá</option>
