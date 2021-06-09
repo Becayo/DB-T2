@@ -6,6 +6,7 @@
        
         $correo = pg_escape_string($dbconn, $_POST['email']);
         $pass = pg_escape_string($dbconn, $_POST['pwd']);
+        $encrypted_pass = password_hash($pass, PASSWORD_DEFAULT,['cost' => 5]);
 
         $buscar_usuario = "SELECT id,correo,contraseña FROM usuario WHERE correo = '$correo' and contraseña = '$pass'";
         $resultado = pg_query($dbconn, $buscar_usuario);
@@ -16,7 +17,6 @@
             $_SESSION['correo'] = $correo;
             $_SESSION['id'] = $id;
             header("location:../index.html");
-
         }else{
             header("location:log-in.html?signup=empty");
         }
