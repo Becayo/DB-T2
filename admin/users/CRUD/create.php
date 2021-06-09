@@ -10,6 +10,11 @@
         $pais = pg_escape_string($dbconn, $_POST['country']);
         date_default_timezone_set('America/Santiago');
         $fecha = pg_escape_string($dbconn, date("Y-m-d H:i:s", time()));
+        $admin = false;
+
+        if($_POST['admin'] == '2'){
+            $admin = true;
+        }
     
         $buscar_usuario = "SELECT * FROM usuario WHERE correo = '$correo'";
         $resultado = pg_query($dbconn, $buscar_usuario);
@@ -17,7 +22,7 @@
 
         if($contador == 0){
 
-            $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha')";
+            $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro, admin) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha', $admin)";
             pg_query($dbconn, $query);
             header("location:../all.html");
 
