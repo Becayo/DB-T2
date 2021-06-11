@@ -24,7 +24,7 @@
         if($contador == 0){
     
             if($pass1 == $pass2){
-                $pass1 = password_hash($pass2,PASSWORD_DEFAULT,['cost' => 5]);
+                $pass1 = md5($pass2);
                 $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha')";
                 pg_query($dbconn, $query);
                 header("location:log-in.html");

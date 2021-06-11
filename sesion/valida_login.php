@@ -6,9 +6,9 @@
        
         $correo = pg_escape_string($dbconn, $_POST['email']);
         $pass = pg_escape_string($dbconn, $_POST['pwd']);
-        $encrypted_pass = password_hash($pass, PASSWORD_DEFAULT,['cost' => 5]);
+        $encrypted_pass = md5($pass);
 
-        $buscar_usuario = "SELECT id,correo,contraseña FROM usuario WHERE correo = '$correo' and contraseña = '$pass'";
+        $buscar_usuario = "SELECT id,correo,contraseña FROM usuario WHERE correo = '$correo' and contraseña = '$encrypted_pass'";
         $resultado = pg_query($dbconn, $buscar_usuario);
         $Datos= pg_fetch_array($resultado);
         $id = $Datos['id'];
@@ -20,6 +20,7 @@
         }else{
             header("location:log-in.html?signup=empty");
         }
-        pg_close();
+        
+    pg_close();
     }
 ?>
