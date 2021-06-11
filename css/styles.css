@@ -1,1 +1,9 @@
 /* Si quieren utilizar CSS personalizado para la tarea, utilicen este archivo */
+
+.nav-item a{
+    color:white;
+}
+
+.nav-item a:hover{
+    color:darkgray;
+}
