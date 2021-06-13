@@ -14,6 +14,7 @@
         $contador = pg_num_rows($resultado);
 
         if(($contador == 1 and $correo==$Datos['correo']) or ($contador == 0 and $correo!=$Datos['correo']) ){
+            $pass1=md5($pass1);
             $sql_update = 
             "UPDATE usuario 
             SET nombre='$nombre',apellido='$apellido',correo='$correo',contraseña='$pass1',pais='$pais' WHERE id=$id_actual";
