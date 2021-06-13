@@ -10,6 +10,18 @@
             <div class="container shadow-lg rounded m-auto p-5">
                 <a href="/admin/users/create.html" class="btn btn-success">Nuevo <i class="fas fa-plus"></i></a>
                 <p></p>
+                <!-- Detectar cuando viene de update, 2 casos, Usuario modificado correctamente y no poder modificar un admin -->
+                <!-- Ver toda la url y detectar el string "mod_admin" o "update" -->
+                <?php
+                    $fullurl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";    
+                    if(strpos($fullurl, "mod_admin") == TRUE) {
+                        echo '<p style="color:red">No puedes modificar a un admin</p>' ;
+                    }
+                    if(strpos($fullurl,"update")==TRUE){
+                        echo '<p style="color:green">Usuario modificado correctamente</p>' ;
+                    }
+                ?>
+                <p></p>
                 <table class="table">
                     <thead>
                         <tr>
@@ -21,12 +33,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Crear la tabla en base de los datos de all.php esto si hay min 1  -->
                             <?php if (count($line) > 0): ?>
                                   <tbody>
+                        <!-- aplicar htmlentities a c/row -->
                             <?php foreach ($line as $row): array_map('htmlentities', $row); ?>
                                     <tr>
+                                        <!-- Unir con td para la tabla -->
                                       <td><?php echo implode('</td><td>', $row); ?></td>
                                       <td> 
+                                          <!-- Los botones con Cada id asignada -->
                                         <?php $ID= $row['id'];
                                             $ver= "/admin/users/read.html?id=$ID";
                                             $editar = "/admin/users/update.html?id=$ID";
@@ -35,6 +51,7 @@
                                         class="fas fa-search"></i></a>
                                         <a href= "<?php echo $editar ?>" class="btn btn-warning">Editar <i
                                         class="fas fa-edit"></i></a>
+                                        <!-- Detalle de preguntar si de verdad uno quiere borrar el usuario -->
                                         <a href= "<?php echo $borrar ?>" onclick= "return confirm('Estas seguro de eliminar este usuario?\nEliminará todo lo relacionado.')" class="btn btn-danger">Borrar <i
                                         class="fas fa-trash-alt"></i></a>
                                     </td>

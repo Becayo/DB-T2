@@ -9,6 +9,7 @@
         <div class="row p-3">
             <div class="col">
                 <div class="container shadow-lg rounded m-auto p-5">
+                    <!-- Form de rellenar -->
                     <form action="CRUD/create.php" method="POST">
                         <div class="form-group">
                             <label for="name">Nombre</label>
@@ -42,6 +43,7 @@
                               <option value="10">Suiza</option>
                             </select>
                           </div>
+                          <!-- Añadimos una opción de crear administradores -->
                         <div class="form-group">
                             <label for="country">Administrador</label>
                             <select class="form-control" name="admin" id="admin">
@@ -49,6 +51,11 @@
                               <option value="2">Sí</option>
                             </select>
                         </div>
+                        <?php
+                            $fullurl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";    
+                            if(strpos($fullurl, "rep_correo") == TRUE) {
+                                echo '<p style="color:red">Ya existe un usuario con este correo</p>' ;
+                            } ?>
                         <div class='d-flex justify-content-end'>
                             <a class="btn btn-secondary mx-3" href="/admin/users/all.html">Volver</a>
                             <button type="submit" class="btn btn-primary">Crear Usuario</button>
