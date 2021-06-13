@@ -3,8 +3,8 @@
 | Integrante | Rol |
 | :------: | :---: |
 | Benjamin Cayo 🦦 | 201973057-6 |
-| Felipe Fuentes | 201973102-5 |
-| Diego Pérez | 201973058-4 |
+| Felipe Fuentes 🦖 | 201973102-5 |
+| Diego Pérez 🏳️‍🌈 | 201973058-4 |
 
 Les dejamos a continuación un usuario para que ingresen como administrador
 
