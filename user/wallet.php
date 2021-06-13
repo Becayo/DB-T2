@@ -10,7 +10,9 @@
     $Datos= pg_fetch_array($result_read);
     $esadmin = $Datos['admin'];
 
-
+    
+    // Verifica si es que es admin, en ese caso, no tiene billetera.
+    // (esto se hace por si se introduce directamente el link de la wallet)
     if($esadmin=='t'){
         header("Location:../index.html");
     }

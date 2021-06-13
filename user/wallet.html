@@ -20,6 +20,7 @@
                                 <th scope="col">Total</th>
                             </tr>
                         </thead>
+                        <!-- mediante un for se muestran las monedas del usuario -->
                         <?php if (count($line) > 0): ?>
                         <tbody>
                             <?php foreach ($line as $row): array_map('htmlentities', $row); ?>

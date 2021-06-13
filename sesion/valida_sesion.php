@@ -11,5 +11,5 @@
 
    include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';
    
-
+// este archivo no fue utilizado puesto que nos generaba problemas agregarle lineas de codigo.
 ?>

@@ -2,6 +2,7 @@
 
     include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';
     session_start();
+    // si ya hay una sesion iniciada te redirige al index
     if(isset($_SESSION['id'])){
         header("Location:../index.html");
     }

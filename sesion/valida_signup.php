@@ -3,6 +3,7 @@
 
     include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';
     session_start();
+    // si ya hay una sesion iniciada te redirige al index
     if(isset($_SESSION['id'])){
         header("Location:../index.html");
     }
@@ -25,18 +26,18 @@
         $resultado = pg_query($dbconn, $buscar_usuario);
         $contador = pg_num_rows($resultado);
 
-        if($contador == 0){
+        if($contador == 0){ //si es que no está ingresado el correo se hace el registro
     
-            if($pass1 == $pass2){
+            if($pass1 == $pass2){ //se verifica si las contraseñas son iguales
                 $pass1 = md5($pass2);
                 $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha')";
                 pg_query($dbconn, $query);
                 header("location:log-in.html");
             }else{
-                echo "Las contraseñas no coinciden";
+                header("location:sign-up.html?wrong_pass");
             }
         }else{
-            echo "Ya existe un usuario con este correo";
+            header("location:sign-up.html?wrong_mail");
         }
     }
     pg_close();

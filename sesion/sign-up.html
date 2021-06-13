@@ -56,6 +56,15 @@
                           <option value="10">Suiza</option>
                         </select>
                       </div>
+                      <?php
+                        $fullurl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                        if(strpos($fullurl, "wrong_pass") == TRUE) {
+                          echo '<p style="color:red">Las contraseñas no coinciden.</p>' ;
+                        }
+                        if(strpos($fullurl, "wrong_mail") == TRUE) {
+                            echo '<p style="color:red">El correo ya está registrado.</p>' ;
+                          }
+                        ?>
                     <div class='d-flex justify-content-end'>
                         <a class="btn btn-secondary mx-3" href="../index.html"><i class="fas fa-angle-left"></i> Volver </a>
                         <button type="submit" class="btn btn-primary" value="Registrar">Crear Cuenta <i class="fas fa-sign-in-alt"></i></button>
@@ -64,8 +73,5 @@
             </div>
         </div>
     </div>
-
-
 </body>
-
 </html>
