@@ -31,7 +31,6 @@
             }else{
                 echo "Las contraseñas no coinciden";
             }
-
         }else{
             echo "Ya existe un usuario con este correo";
         }
