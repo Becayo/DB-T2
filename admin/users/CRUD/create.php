@@ -24,11 +24,11 @@
             if ($admin=='2'){
                 $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro, admin) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha', 'TRUE')";
                 pg_query($dbconn, $query);
-                header("location:../all.html");
+                header("location:../all.html?create");
             }else{
                 $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro, admin) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha', 'FALSE')";
                 pg_query($dbconn, $query);
-                header("location:../all.html");
+                header("location:../all.html?create");
             }
         }else{
             header("location:../create.html?rep_correo");

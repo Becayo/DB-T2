@@ -7,3 +7,13 @@
 .nav-item a:hover{
     color:darkgray;
 }
+
+html {
+    background-image: url(/img/loop);
+    background-size: 100%;
+}
+
+.contenedor {
+    background-image: url(/img/loop);
+    background-size: 100%;
+}
