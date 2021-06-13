@@ -2,6 +2,10 @@
     include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';    #Incluir dbconn, la conexión
     include 'read.php';                                    #Incluir los datos actuales.
 
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
     if($_SERVER['REQUEST_METHOD'] == "POST"){                           #Obtención de todos los datos del formulario
         $nombre = pg_escape_string($dbconn, $_POST['name']);
         $apellido = pg_escape_string($dbconn, $_POST['surname']);
@@ -16,7 +20,7 @@
         #Primer if es para la condición de existencia de 1 solo correo, Si está modificando el propio o está modificando el de alguien
         if(($contador == 1 and $correo==$Datos['correo']) or ($contador == 0 and $correo!=$Datos['correo']) ){
             #Segundo if es para restringir modificar la constraseña de otro admin, esto por si acaso.
-            if (($_SESSION['id']==$id_actual) or ($es_admin==FALSE)){
+            if (($_SESSION['id']==$id_actual) || ($es_admin=='f')){
                 $pass1=md5($pass1);           #Encriptar la contraseña
                 $sql_update =                 #Query update, y luego redirigir
                 "UPDATE usuario 

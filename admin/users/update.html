@@ -1,5 +1,6 @@
 <!-- Includes de navbar, codigo php de update , obtener la id y url con id  -->
-<?php include '../../include/navbar.html';
+<?php
+include '../../include/navbar.html';
 include 'CRUD/update.php';
 $id= $_GET['id'] ;
 $update = "CRUD/update.php?id=$id";?>
@@ -26,7 +27,7 @@ $update = "CRUD/update.php?id=$id";?>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Contraseña</label>
-                            <input type="password" class="form-control" placeholder="Contraseña" value= "<?php echo $Datos['contraseña']?>" id="pwd" name="pwd" required>
+                            <input type="password" class="form-control" placeholder="Contraseña" id="pwd" name="pwd" required>
                         </div>
                         <!-- NOTA: Los valores están en duro para esta tarea. -->
                         <!-- Lo siguiente fue lo mejor que se me ocurrió para mostrar el país  -->
