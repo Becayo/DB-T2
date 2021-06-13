@@ -1,5 +1,11 @@
 <?php
-    if(!isset($_SESSION['id'])){
+    $id_actual = $_SESSION['id'];
+    $sql_read =  "SELECT id,nombre,apellido,correo,pais,fecha_registro,contraseña,admin FROM usuario WHERE id=$id_actual";
+    $result_read = pg_query ($sql_read) or die('La consulta fallo: ' . pg_last_error());
+    $Datos= pg_fetch_array($result_read);
+    $esadmin = $Datos['admin'];
+
+    if(!isset($_SESSION['id']) || ($esadmin=='t')){
         header("Location:../index.html");
     }
 

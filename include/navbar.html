@@ -4,12 +4,13 @@ session_start();?>
 <body>
     <nav class="navbar sticky-top navbar-expand-sm bg-custom" style="background-color: rgb(36, 30, 92);">
         <!-- Ponga el número de su equipo -->
-        <a class="navbar-brand" href="/index.html" style="color: white;">Equipo 21</a>
+        <a class="navbar-brand" href="/index.html" style="color: white;">21's Club</a>
         <ul class="navbar-nav">
             <!-- Visible solo si hay una sesión iniciada -->
             <?php if(isset($_SESSION['id'])){ echo '<li class="nav-item"><a class="nav-link" href="/user/profile.html"><i class="fas fa-id-card"></i> Perfil</a></li>';}?>
             
             <!-- Solo los usuarios tienen billetera -->
+            <!-- Se comprueba cual de los dos botones se debe mostrar según el permiso de usuario que tenga -->
             <?php 
             if(isset($_SESSION['id'])){
 
@@ -17,7 +18,8 @@ session_start();?>
                 $buscar_admin = "SELECT * FROM usuario WHERE id = $id";
                 $result_read = pg_query($buscar_admin);
                 $Datos= pg_fetch_array($result_read);
-
+                
+                
                 if($Datos['admin'] == 'f'){ echo '<li class="nav-item"><a class="nav-link" href="/user/wallet.html"><i class="fas fa-wallet"></i> Billetera</a></li>';}
                 if($Datos['admin'] == 't'){ echo '<li class="nav-item"><a class="nav-link" href="/admin/users/all.html"><i class="fas fa-users"></i> Usuarios</a></li>';}
             }
