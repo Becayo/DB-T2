@@ -2,9 +2,9 @@
 session_start();?>
 <?php include $_SERVER['DOCUMENT_ROOT']. '/sesion/valida_sesion.php' ?>
 <body>
-    <nav class="navbar sticky-top navbar-expand-sm bg-custom" style="background-color: rgb(122, 45, 138);">
+    <nav class="navbar sticky-top navbar-expand-sm bg-custom" style="background-color: rgb(36, 30, 92);">
         <!-- Ponga el número de su equipo -->
-        <a class="navbar-brand" href="/index.html" style="color: black;">Equipo 21</a>
+        <a class="navbar-brand" href="/index.html" style="color: white;">Equipo 21</a>
         <ul class="navbar-nav">
             <!-- Visible solo si hay una sesión iniciada -->
             <?php if(isset($_SESSION['id'])){ echo '<li class="nav-item"><a class="nav-link" href="/user/profile.html"><i class="fas fa-id-card"></i> Perfil</a></li>';}?>
