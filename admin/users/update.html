@@ -1,8 +1,8 @@
-<?php include '../../include/navbar.html'; ?>
-<?php include 'CRUD/update.php';
+<!-- Includes de navbar, codigo php de update , obtener la id y url con id  -->
+<?php include '../../include/navbar.html';
+include 'CRUD/update.php';
 $id= $_GET['id'] ;
 $update = "CRUD/update.php?id=$id";?>
-
     <div class='container-fluid'>
         <div class="row p-3">
             <h1>Editar Usuario</h1>
@@ -10,7 +10,7 @@ $update = "CRUD/update.php?id=$id";?>
         <div class="row p-3">
             <div class="col">
                 <div class="container shadow-lg rounded m-auto p-5">
-                    <!-- El formulario debe aparecer llenado con los valores actuales de los parámetros -->
+                    <!-- Formulario rellenado con values dirigidos del read -->
                     <form method="POST" action= "<?php echo $update ?>">
                         <div class="form-group">
                             <label for="name">Nombre</label>
@@ -29,6 +29,7 @@ $update = "CRUD/update.php?id=$id";?>
                             <input type="password" class="form-control" placeholder="Contraseña" value= "<?php echo $Datos['contraseña']?>" id="pwd" name="pwd" required>
                         </div>
                         <!-- NOTA: Los valores están en duro para esta tarea. -->
+                        <!-- Lo siguiente fue lo mejor que se me ocurrió para mostrar el país  -->
                         <div class="form-group">
                             <label for="country">País</label>
                             <select class="form-control" id="country" name="country">
@@ -44,6 +45,16 @@ $update = "CRUD/update.php?id=$id";?>
                               <option value="10"<?php echo($Datos['pais']==10?"selected":"");?>>Suiza</option>
                             </select>
                           </div>
+                        <div>
+                            <!-- Detectar cuando viene de un update incorrecto por correo repetido -->
+                            <?php
+                                $fullurl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                                if(strpos($fullurl, "rep_correo") == TRUE){
+                                    echo '<p style="color:red">Ya existe un usuario con este correo</p>';
+                                }
+                            ?>
+                            <br>
+                        </div>
                         <div class='d-flex justify-content-end'>
                             <a class="btn btn-secondary mx-3" href="/admin/users/all.html">Volver</a>
                             <button type="submit" class="btn btn-primary">Guardar cambios</button>
