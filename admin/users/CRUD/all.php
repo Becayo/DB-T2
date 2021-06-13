@@ -1,4 +1,8 @@
 <?php 
+
+    if(!isset($_SESSION['id'])){
+        header("Location: ../../../index.html");
+    }
     $id_actual = $_SESSION['id'];
     $sql_read =  "SELECT id,nombre,apellido,correo,pais,fecha_registro,contraseña,admin FROM usuario WHERE id=$id_actual";
     $result_read = pg_query ($sql_read) or die('La consulta fallo: ' . pg_last_error());
