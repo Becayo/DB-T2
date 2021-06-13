@@ -1,9 +1,12 @@
 <?php 
-/* Este archivo debe manejar la lógica de iniciar sesión */
+
     include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';
     session_start();
+    if(isset($_SESSION['id'])){
+        header("Location:../index.html");
+    }
+
     if($_SERVER['REQUEST_METHOD'] == "POST"){
-       
         $correo = pg_escape_string($dbconn, $_POST['email']);
         $pass = pg_escape_string($dbconn, $_POST['pwd']);
         $encrypted_pass = md5($pass);
@@ -20,7 +23,6 @@
         }else{
             header("location:log-in.html?signup=empty");
         }
-        
     pg_close();
     }
 ?>
