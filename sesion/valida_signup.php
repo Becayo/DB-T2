@@ -2,6 +2,10 @@
 /* Este archivo debe validar los datos de registro y manejar la lógica de crear un usuario desde el formulario de registro */
 
     include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';
+    session_start();
+    if(isset($_SESSION['id'])){
+        header("Location:../index.html");
+    }
         
     if($_SERVER['REQUEST_METHOD'] == "POST"){
             
