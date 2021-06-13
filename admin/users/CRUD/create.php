@@ -10,22 +10,22 @@
         $pais = pg_escape_string($dbconn, $_POST['country']);
         date_default_timezone_set('America/Santiago');
         $fecha = pg_escape_string($dbconn, date("Y-m-d H:i:s", time()));
-        $admin = false;
+        $admin = pg_escape_string($dbconn, $_POST['admin']);
 
-        if($_POST['admin'] == '2'){
-            $admin = true;
-        }
-    
         $buscar_usuario = "SELECT * FROM usuario WHERE correo = '$correo'";
         $resultado = pg_query($dbconn, $buscar_usuario);
         $contador = pg_num_rows($resultado);
 
         if($contador == 0){
-
-            $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro, admin) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha', $admin)";
-            pg_query($dbconn, $query);
-            header("location:../all.html");
-
+            if ($admin=='2'){
+                $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro, admin) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha', 'TRUE')";
+                pg_query($dbconn, $query);
+                header("location:../all.html");
+            }else{
+                $query = "INSERT INTO usuario (nombre, apellido, correo, contraseña, pais, fecha_registro, admin) VALUES ('$nombre', '$apellido', '$correo', '$pass1', '$pais', '$fecha', 'FALSE')";
+                pg_query($dbconn, $query);
+                header("location:../all.html");
+            }
         }else{
             echo "Ya existe un usuario con este correo";
         }
